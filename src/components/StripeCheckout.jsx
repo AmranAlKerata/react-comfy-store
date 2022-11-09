@@ -12,13 +12,17 @@ import { useCartContext } from "../context/cart_context";
 import { useUserContext } from "../context/user_context";
 import { formatPrice } from "../utils/helpers";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const promise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
-  const { user } = useUserContext();
+  const { user } = useAuth0();
   const navigate = useNavigate();
+
+  // Stripe Stuff
+
   const [ succeeded, setSucceeded ] = useState(false);
   const [ error, setError ] = useState(null);
   const [ processing, setProcessing ] = useState("");
@@ -35,12 +39,11 @@ const CheckoutForm = () => {
       );
       setClientSecret(data.clientSecret);
     } catch (error) {
-      // console.log(error.response)
+      console.log(error.response);
     }
   };
   useEffect(() => {
     createPaymentIntent();
-    // eslint-disable-next-line
   }, []);
 
   const cardStyle = {

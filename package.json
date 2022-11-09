@@ -17,7 +17,7 @@
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
@@ -29,7 +29,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
-    "netlify-cli": "^3.10.1",
+    "netlify-cli": "^3.39.4",
     "vite": "^3.1.0"
   }
 }
